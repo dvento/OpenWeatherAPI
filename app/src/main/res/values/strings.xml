@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">OpenWeatherAPI</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="weatherTitle">Weather</string>
+    <string name="currentWeather">Current weather in $s:</string>
+    <string name="currentTemp">Temperature: %i Cº</string>
+    <string name="currentWind">Wind: %i km/h</string>
+    <string name="currentHumidity">Humidity: %i %</string>
+    <string name="currentSky">Sky: %s</string>
+    <string name="WebView">WebView</string>
+    <string name="webviewTitle">WebView</string>
+    <string name="fiveDayForecast">Forecast for the next 5 days:</string>
+    <string name="timestamp">When: %s</string>
+</resources>

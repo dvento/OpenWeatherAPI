@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_weather"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/weatherTitle" />
+
+    <item
+        android:id="@+id/navigation_webview"
+        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:title="@string/webviewTitle" />
+
+
+</menu>
