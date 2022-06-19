@@ -6,23 +6,19 @@ import androidx.lifecycle.viewModelScope
 import com.learning.openWeatherAPI.data.model.OneDayForecastModel
 import com.learning.openWeatherAPI.domain.GetFiveDayForecastUseCase
 import com.learning.openWeatherAPI.domain.GetOneDayForecastUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-
-class WeatherViewModel : ViewModel() {
+@HiltViewModel
+class WeatherViewModel @Inject constructor(
+    val getOneDayForecastUseCase: GetOneDayForecastUseCase,
+    val getFiveDayForecastUseCase: GetFiveDayForecastUseCase
+) : ViewModel() {
 
     val currentForecastModel = MutableLiveData<OneDayForecastModel>()
     val fiveDayForecastModel = MutableLiveData<List<OneDayForecastModel>>()
     val isDataLoading = MutableLiveData<Boolean>()
-
-
-    var getOneDayForecastUseCase = GetOneDayForecastUseCase()
-    var getFiveDayForecastUseCase = GetFiveDayForecastUseCase()
-
-
-    fun onCreate() {
-
-    }
 
     fun getCurrentForecast(){
         viewModelScope.launch {
