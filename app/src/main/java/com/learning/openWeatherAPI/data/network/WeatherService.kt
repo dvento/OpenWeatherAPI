@@ -7,17 +7,20 @@ import com.learning.openWeatherAPI.data.model.OneDayForecastModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.Response
+import retrofit2.Retrofit
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class WeatherService {
 
-    private val retrofit = RetrofitHelper.getRetrofit()
+class WeatherService @Inject constructor(
+    private val apiClient: WeatherApiClient
+) {
 
     private val api_key = "YOUR API KEY GOES HERE"
 
     suspend fun getOneDayForecast(): OneDayForecastModel{
         return withContext(Dispatchers.IO) {
-            val response: Response<OneDayForecastModel> = retrofit
-                .create(WeatherApiClient::class.java).getOneDayForecast(api_key)
+            val response: Response<OneDayForecastModel> = apiClient.getOneDayForecast(api_key)
 
             response.body() ?: OneDayForecastModel()
         }
@@ -25,8 +28,7 @@ class WeatherService {
 
     suspend fun getFiveDayForecast(): FiveDayForecastModel {
         return withContext(Dispatchers.IO) {
-            val response: Response<FiveDayForecastModel> = retrofit
-                .create(WeatherApiClient::class.java).getFiveDayForecast(api_key)
+            val response: Response<FiveDayForecastModel> = apiClient.getFiveDayForecast(api_key)
 
             response.body() ?: FiveDayForecastModel()
         }

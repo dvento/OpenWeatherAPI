@@ -11,8 +11,10 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.learning.openWeatherAPI.databinding.FragmentWeatherBinding
 import com.learning.openWeatherAPI.ui.viewmodel.WeatherViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlin.math.roundToInt
 
+@AndroidEntryPoint
 class WeatherFragment : Fragment() {
 
     private var _binding: FragmentWeatherBinding? = null
